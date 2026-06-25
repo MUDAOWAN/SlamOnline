@@ -1,0 +1,28 @@
+# Run from /home/sky/czh/SplatGraph/SlamOnline/third_party/MonoGS:
+#   python slam.py --config configs/rgbd/replica/room0_half_online_semantic_save.yaml
+#
+# First 1000 frames of Replica room0 prepared under
+# /home/sky/czh/SplatGraph/SlamOnline/datasets/Replica/room0_0.5.
+# Saves same-run Gaussian output and emits one semantic queue task per MonoGS keyframe.
+
+inherit_from: "configs/rgbd/replica/base_config.yaml"
+
+Dataset:
+  dataset_path: "/home/sky/czh/SplatGraph/SlamOnline/datasets/Replica/room0_0.5"
+
+Results:
+  save_results: True
+  save_dir: "/home/sky/czh/SplatGraph/SlamOnline/output/replica_room0_half/results"
+  save_trj: True
+  use_gui: False
+  eval_rendering: False
+  use_wandb: False
+
+OnlineSemantic:
+  enabled: True
+  queue_root: "/home/sky/czh/SplatGraph/SlamOnline/output/replica_room0_half/queue"
+  emit_init: True
+  emit_keyframes: True
+  keyframe_stride: 1
+  max_pending: 300
+  overwrite: False

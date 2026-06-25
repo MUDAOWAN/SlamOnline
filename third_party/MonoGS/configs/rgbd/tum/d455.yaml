@@ -1,0 +1,31 @@
+# 注意这里继承的是 rgbd 目录下的 base_config，它里面开启了深度融合相关的策略
+inherit_from: "configs/rgbd/tum/base_config.yaml"
+
+Dataset:
+  dataset_path: "/home/sky/czh/datasets/small/small0"
+  Calibration:
+    fx: 645.072021484375
+    fy: 644.225341796875
+    cx: 627.6578979492188
+    cy: 367.1736145019531
+    k1: 0.0
+    k2: 0.0
+    p1: 0.0
+    p2: 0.0
+    k3: 0.0
+    distorted: False
+    width: 1280
+    height: 720
+    depth_scale: 1000.0
+
+Training:
+  eval_ate: False
+
+OnlineSemantic:
+  enabled: False
+  queue_root: "/home/sky/czh/datasets/table/online_semantic_queue"
+  emit_init: True
+  emit_keyframes: True
+  keyframe_stride: 1
+  max_pending: 0
+  overwrite: False

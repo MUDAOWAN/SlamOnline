@@ -1,0 +1,28 @@
+# Run from the MonoGS root on the server:
+#   cd /root/czh/SplatGraph/SlamOnline/third_party/MonoGS
+#   python slam.py --config configs/rgbd/replica/room0_full_server_online_semantic_save.yaml
+#
+# Full Replica room0 dataset copied to /root/czh/datasets/room0.
+# Saves same-run Gaussian output and emits semantic queue tasks.
+
+inherit_from: "configs/rgbd/replica/base_config.yaml"
+
+Dataset:
+  dataset_path: "/root/czh/datasets/room0"
+
+Results:
+  save_results: True
+  save_dir: "/root/czh/SplatGraph/SlamOnline/output/replica_room0_full_server/results"
+  save_trj: True
+  use_gui: False
+  eval_rendering: False
+  use_wandb: False
+
+OnlineSemantic:
+  enabled: True
+  queue_root: "/root/czh/SplatGraph/SlamOnline/output/replica_room0_full_server/queue"
+  emit_init: True
+  emit_keyframes: True
+  keyframe_stride: 1
+  max_pending: 500
+  overwrite: False

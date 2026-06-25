@@ -1,0 +1,29 @@
+# Run from ../../.. project root through third_party/MonoGS:
+#   cd /home/sky/czh/SlamOnline/third_party/MonoGS
+#   python slam.py --config configs/rgbd/replica/office2_04_online_semantic_save.yaml
+#
+# Replica office2 sampled with sample_ratio=0.4 under
+# ../../datasets/Replica/office2_0.4 when run from third_party/MonoGS.
+# Saves same-run Gaussian output and emits one semantic queue task per MonoGS keyframe.
+
+inherit_from: "configs/rgbd/replica/base_config.yaml"
+
+Dataset:
+  dataset_path: "../../datasets/Replica/office2_0.4"
+
+Results:
+  save_results: True
+  save_dir: "../../output/replica_office2_04/results"
+  save_trj: True
+  use_gui: False
+  eval_rendering: False
+  use_wandb: False
+
+OnlineSemantic:
+  enabled: True
+  queue_root: "../../output/replica_office2_04/queue"
+  emit_init: True
+  emit_keyframes: True
+  keyframe_stride: 1
+  max_pending: 0
+  overwrite: False

@@ -1,0 +1,24 @@
+# Run from /home/sky/czh/SplatGraph/MonoGS:
+#   python slam.py --config configs/rgbd/tum/d455_online_semantic_save.yaml
+#
+# This config keeps MonoGS geometry output and emits a sampled subset of
+# keyframes into the online semantic queue for asynchronous SAM+CLIP processing.
+
+inherit_from: "configs/rgbd/tum/d455.yaml"
+
+Results:
+  save_results: True
+  save_dir: "/tmp/splatgraph_monogs_same_run/results"
+  save_trj: True
+  use_gui: False
+  eval_rendering: False
+  use_wandb: False
+
+OnlineSemantic:
+  enabled: True
+  queue_root: "/tmp/splatgraph_monogs_same_run/queue"
+  emit_init: True
+  emit_keyframes: True
+  keyframe_stride: 20
+  max_pending: 50
+  overwrite: False

@@ -1,0 +1,28 @@
+# Run from /home/sky/czh/SplatGraph/SlamOnline/third_party/MonoGS:
+#   python slam.py --config configs/rgbd/replica/office4_third_online_semantic_save.yaml
+#
+# Replica office4 sampled with stride=3 under
+# /home/sky/czh/SplatGraph/SlamOnline/datasets/Replica/office4_0.33.
+# Saves same-run Gaussian output and emits one semantic queue task per MonoGS keyframe.
+
+inherit_from: "configs/rgbd/replica/base_config.yaml"
+
+Dataset:
+  dataset_path: "/home/sky/czh/SplatGraph/SlamOnline/datasets/Replica/office4_0.33"
+
+Results:
+  save_results: True
+  save_dir: "/home/sky/czh/SplatGraph/SlamOnline/output/replica_office4_third/results"
+  save_trj: True
+  use_gui: False
+  eval_rendering: False
+  use_wandb: False
+
+OnlineSemantic:
+  enabled: True
+  queue_root: "/home/sky/czh/SplatGraph/SlamOnline/output/replica_office4_third/queue"
+  emit_init: True
+  emit_keyframes: True
+  keyframe_stride: 1
+  max_pending: 250
+  overwrite: False

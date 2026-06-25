@@ -1,0 +1,23 @@
+inherit_from: "configs/mono/tum/base_config.yaml"
+
+Dataset:
+  dataset_path: "/home/sky/czh/datasets/meetingroom/meetingroom0"
+  Calibration:
+    fx: 644.54638671875
+    fy: 643.7003784179688
+    cx: 627.6578979492188
+    cy: 367.1736145019531
+    k1: 0.0
+    k2: 0.0
+    p1: 0.0
+    p2: 0.0
+    k3: 0.0
+    width: 1280
+    height: 720
+    # 对于单目模式，depth_scale 不影响追踪，但建议按 D455 常规填 1000.0
+    depth_scale: 1000.0
+    distorted: False
+
+Training:
+  # 关闭定期计算 ATE，防止因为缺少 Ground Truth 报错
+  eval_ate: False

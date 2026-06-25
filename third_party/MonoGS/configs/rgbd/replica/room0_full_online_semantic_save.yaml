@@ -1,0 +1,27 @@
+# Run from /home/sky/czh/SplatGraph/SlamOnline/third_party/MonoGS:
+#   python slam.py --config configs/rgbd/replica/room0_full_online_semantic_save.yaml
+#
+# Full Replica room0 dataset prepared under /home/sky/czh/SplatGraph/SlamOnline/datasets/Replica/room0.
+# Saves same-run Gaussian output and emits sampled semantic queue tasks.
+
+inherit_from: "configs/rgbd/replica/base_config.yaml"
+
+Dataset:
+  dataset_path: "/home/sky/czh/SplatGraph/SlamOnline/datasets/Replica/room0"
+
+Results:
+  save_results: True
+  save_dir: "/home/sky/czh/SplatGraph/SlamOnline/output/replica_room0_full/results"
+  save_trj: True
+  use_gui: False
+  eval_rendering: False
+  use_wandb: False
+
+OnlineSemantic:
+  enabled: True
+  queue_root: "/home/sky/czh/SplatGraph/SlamOnline/output/replica_room0_full/queue"
+  emit_init: True
+  emit_keyframes: True
+  keyframe_stride: 1
+  max_pending: 500
+  overwrite: False
