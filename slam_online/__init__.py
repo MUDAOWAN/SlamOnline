@@ -1,0 +1,1 @@
+"""SlamOnline project package."""

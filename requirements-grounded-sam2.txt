@@ -1,0 +1,28 @@
+# Semantic2D environment dependencies for the detector-first 2D semantic backend.
+# Install these in a separate conda env named Semantic2D, not in the base
+# SlamOnline env, because SAM 2 requires Python >=3.10 and torch >=2.5.1.
+#
+# Install PyTorch separately first, then install this file.
+
+opencv-python
+Pillow
+tqdm
+numpy
+hydra-core>=1.3.2
+iopath>=0.1.10
+transformers==4.40.2
+accelerate
+safetensors
+huggingface-hub==0.23.5
+timm
+scipy
+fairscale
+openai
+
+# Install SAM 2 from the official repository.
+git+https://github.com/facebookresearch/sam2.git
+
+# Optional but recommended for automatic prompt discovery:
+# Recognize Anything / RAM++ is installed from GitHub and needs a separate
+# checkpoint such as ram_plus_swin_large_14m.pth. Keep it in Semantic2D.
+git+https://github.com/xinyu1205/recognize-anything.git

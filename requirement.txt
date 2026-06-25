@@ -1,0 +1,33 @@
+# Ordinary Python dependencies for SlamOnline.
+# Install PyTorch/CUDA and local CUDA extensions separately; see slam_online.md.
+numpy==1.26.4
+setuptools==68.2.2
+wheel
+ninja
+packaging
+opencv-python==4.8.1.78
+tqdm
+PyYAML
+munch
+plyfile==0.8.1
+Pillow
+trimesh
+evo==1.11.0
+open3d==0.17.0
+torchmetrics
+imgviz
+PyOpenGL
+glfw
+PyGLM
+wandb
+lpips
+rich
+open-clip-torch
+transformers==4.40.2
+accelerate
+safetensors
+huggingface-hub==0.23.5
+matplotlib
+scikit-learn
+tensorboard
+jaxtyping

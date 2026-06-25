@@ -1,0 +1,53 @@
+__pycache__/
+*.pyc
+*.py[cod]
+*.egg-info/
+*.so
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.vscode/
+.idea/
+.agents/
+.codex/
+HANDOFF.md
+*.swp
+*.swo
+*~
+
+# Local secrets and machine-specific configuration.
+configs/llm_prompt_filter.json
+configs/*secret*.json
+configs/*private*.json
+*.env
+.env*
+
+# Local data, papers, runtime outputs, and downloaded model weights.
+datasets/
+output/
+paper/
+logs/
+results/
+runs/
+wandb/
+tmp/
+temp/
+cache/
+
+# Model weights and generated arrays/point clouds.
+*.pth
+*.pt
+*.ckpt
+*.onnx
+*.npy
+*.npz
+*.ply
+
+# Third-party local downloads/build products.
+third_party/recognize-anything/pretrained/
+third_party/LangSplatV2/ckpts/
+third_party/**/.huggingface/
+third_party/**/build/
+third_party/**/*.egg-info/
